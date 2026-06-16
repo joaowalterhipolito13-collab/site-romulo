@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio RC – Fisioterapia, Estética e Bem-estar | Dr. Rômulo Carvalho</title>
+  <meta name="description" content="Do alívio da dor à transformação estética, tratamentos personalizados com tecnologia e atendimento humanizado. Agende sua avaliação." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #18C2C7;
+      --dark: #021B3D;
+      --mid:  #032A59;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      background: rgba(2, 27, 61, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 72px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color .2s;
+      white-space: nowrap;
+    }
+
+    nav a:hover { color: var(--teal); }
+
+    .btn-header {
+      background: var(--teal);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 0 24px;
+      height: 46px;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: opacity .2s;
+    }
+
+    .btn-header:hover { opacity: .9; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Background — clínica */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('BG-hero-desktop.png');
+      background-size: cover;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+
+    /* Overlay gradiente — escurece esquerda, abre direita */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        #021B3D 0%,
+        #021B3D 38%,
+        rgba(2,27,61,0.82) 58%,
+        rgba(2,27,61,0.45) 80%,
+        rgba(2,27,61,0.20) 100%
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      padding-top: 90px; /* header height */
+      display: grid;
+      grid-template-columns: 55% 45%;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ─── LEFT COLUMN ─────────────────────────────────────── */
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      padding-right: 48px;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--teal);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 999px;
+      margin-bottom: 40px;
+      width: fit-content;
+    }
+
+    /* Headline */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      font-weight: 700;
+      line-height: 1.0;
+      color: #fff;
+      max-width: 620px;
+    }
+
+    /* Subheadline */
+    .subheadline {
+      font-size: 20px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.85);
+      max-width: 580px;
+      margin-top: 32px;
+    }
+
+    /* CTA buttons */
+    .cta-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      height: 56px;
+      padding: 0 32px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .9; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal);
+      font-size: 16px;
+      font-weight: 600;
+      border: 1.5px solid var(--teal);
+      border-radius: 8px;
+      height: 56px;
+      padding: 0 32px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background .2s, color .2s;
+    }
+    .btn-secondary:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    /* Contact badges */
+    .contact-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--teal);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 10px 16px;
+      white-space: nowrap;
+    }
+
+    .contact-badge svg,
+    .contact-badge span.icon {
+      flex-shrink: 0;
+      color: var(--teal);
+    }
+
+    /* ─── RIGHT COLUMN ────────────────────────────────────── */
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100%;
+      min-height: calc(100vh - 90px);
+    }
+
+    /* fade lateral para fundir com o fundo */
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      left: -60px;
+      background: linear-gradient(90deg, var(--dark) 0%, transparent 40%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .doctor-img {
+      width: 100%;
+      max-width: 520px;
+      height: 95vh;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* ─── RESPONSIVIDADE ──────────────────────────────────── */
+    /* ── Tablet ── */
+    @media (max-width: 1024px) {
+      h1 { font-size: 58px; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-bottom: 0;
+      }
+      .hero-left { padding-right: 0; }
+      .hero-right {
+        min-height: auto;
+        justify-content: center;
+      }
+      .hero-right::before { display: none; }
+      .doctor-img {
+        height: 52vw;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      .header-inner { padding: 0 20px; }
+      nav { display: none; }
+
+      /* Hero: altura livre, empilha em coluna */
+      #hero { min-height: auto; height: auto; align-items: flex-start; }
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 100px 20px 0;
+        min-height: auto;
+        gap: 0;
+      }
+
+      /* Reordenamento: badge → h1 → foto → resto */
+      .badge       { order: 1; }
+      h1           { order: 2; font-size: 40px; line-height: 1.05; }
+      .hero-right  { order: 3; }
+      .subheadline { order: 4; font-size: 17px; margin-top: 20px; }
+      .cta-area    { order: 5; }
+      .contact-badges { order: 6; }
+
+      .hero-left {
+        padding-right: 0;
+        padding-bottom: 0;
+        display: contents; /* deixa os filhos participarem do flex pai */
+      }
+
+      /* Botões lado a lado */
+      .cta-area {
+        margin-top: 24px;
+        flex-direction: row;
+        gap: 12px;
+      }
+      .btn-primary, .btn-secondary {
+        flex: 1;
+        justify-content: center;
+        font-size: 14px;
+        padding: 0 16px;
+        height: 52px;
+        white-space: nowrap;
+      }
+
+      .contact-badges {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 20px;
+      }
+      .contact-badge { justify-content: center; }
+
+      /* Imagem do doutor */
+      .hero-right {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+        margin-top: 16px;
+      }
+      .hero-right::before { display: none; }
+      .doctor-img {
+        width: 90%;
+        height: auto;
+        max-width: 340px;
+        object-fit: unset;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    [data-fade] {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+    [data-delay="0"]   { animation-delay: 0.1s; }
+    [data-delay="100"] { animation-delay: 0.25s; }
+    [data-delay="200"] { animation-delay: 0.45s; }
+    [data-delay="300"] { animation-delay: 0.65s; }
+    [data-delay="400"] { animation-delay: 0.85s; }
+
+    /* ─── SEÇÃO 03 — SOBRE O DR. RÔMULO ─────────────────── */
+    #sobre {
+      background: #fff;
+      padding: 72px 40px;
+    }
+
+    .s3-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 48% 52%;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* Coluna imagem */
+    .s3-img-wrap {
+      position: relative;
+    }
+
+    .s3-img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+    }
+
+    /* Coluna conteúdo */
+    .s3-content {}
+
+    /* Detalhe losango */
+    .s3-diamond {
+      width: 80px;
+      height: 40px;
+      background: #0D2B4E;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      margin-bottom: 28px;
+    }
+
+    /* Badge */
+    .s3-badge {
+      display: inline-block;
+      background: #0D2B4E;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .s3-badge-desktop { display: block; width: fit-content; margin: 0 auto 28px; }
+
+    /* Headline */
+    .s3-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #0D2B4E;
+      line-height: 1.1;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    /* Descrição */
+    .s3-desc {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #4B5563;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    /* Credenciais */
+    .s3-creds {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .s3-cred {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .s3-cred-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      object-fit: contain;
+      margin-top: 2px;
+    }
+
+    .s3-cred-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0D2B4E;
+      margin-bottom: 2px;
+    }
+
+    .s3-cred-desc {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .s3-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #16C2C7;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      height: 56px;
+      padding: 0 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 40px;
+      transition: filter 0.2s;
+    }
+    .s3-cta:hover { filter: brightness(1.05); }
+
+    /* Animações S3 */
+    @keyframes fadeRight {
+      from { opacity: 0; transform: translateX(-32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .s3-img-wrap[data-s3]   { opacity: 0; animation: fadeRight 0.8s ease forwards 0.1s; }
+    .s3-content[data-s3]    { opacity: 0; animation: fadeLeft  0.8s ease forwards 0.2s; }
+    .s3-cred[data-s3-c="0"] { opacity: 0; animation: fadeUp   0.6s ease forwards 0.35s; }
+    .s3-cred[data-s3-c="1"] { opacity: 0; animation: fadeUp   0.6s ease forwards 0.45s; }
+    .s3-cred[data-s3-c="2"] { opacity: 0; animation: fadeUp   0.6s ease forwards 0.55s; }
+
+    /* Badge: desktop mostra o interno, mobile mostra o externo */
+    .s3-badge-mobile { display: none; }
+    .s3-badge-desktop { display: inline-block; }
+
+    /* Responsividade S3 */
+    @media (max-width: 1024px) {
+      .s3-container { grid-template-columns: 1fr; gap: 32px; }
+      .s3-headline { font-size: 46px; }
+    }
+
+    @media (max-width: 640px) {
+      #sobre { padding: 72px 20px 60px; }
+      .s3-container { gap: 20px; }
+      .s3-headline { font-size: 34px; }
+      .s3-desc { font-size: 16px; }
+      .s3-cta { width: 100%; justify-content: center; }
+
+      /* Badge mobile acima da imagem */
+      .s3-badge-mobile {
+        display: inline-block;
+        margin-bottom: 16px;
+      }
+      .s3-badge-desktop { display: none; }
+    }
+
+    /* ─── SEÇÃO 02 — DOR E INSATISFAÇÃO ──────────────────── */
+    #dor-insatisfacao {
+      position: relative;
+      background: var(--dark);
+      padding: 72px 40px;
+      overflow: hidden;
+    }
+
+    /* Marca d'água de fundo */
+    #dor-insatisfacao::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 560px;
+      height: 560px;
+      background-image: url('logo-marca-dagua.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.03;
+      pointer-events: none;
+    }
+
+    .s2-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Badge */
+    .s2-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 999px;
+      margin-bottom: 40px;
+    }
+
+    /* Headline */
+    .s2-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Subheadline */
+    .s2-sub {
+      font-size: 20px;
+      color: rgba(255,255,255,.85);
+      text-align: center;
+      max-width: 800px;
+      margin: 32px auto 80px;
+      line-height: 1.6;
+    }
+
+    /* Grid de cards */
+    .s2-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+    }
+
+    /* Card */
+    .s2-card {
+      background: rgba(14,51,87,.85);
+      border: 1px solid rgba(24,194,199,.55);
+      border-radius: 24px;
+      padding: 40px;
+      min-height: 240px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .s2-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--teal);
+      box-shadow: 0 0 30px rgba(24,194,199,.15);
+    }
+
+    .s2-card svg,
+    .s2-icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 24px;
+    }
+
+    .s2-card-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .s2-card-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+    }
+
+    /* CTA */
+    .s2-cta-wrap {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .s2-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--teal);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      height: 60px;
+      padding: 0 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+
+    .s2-btn:hover { filter: brightness(1.08); }
+
+    .s2-caption {
+      font-size: 14px;
+      color: rgba(255,255,255,.65);
+      margin-top: 18px;
+    }
+
+    /* Stagger animation para cards */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .s2-badge[data-s2-fade]      { animation: fadeDown 0.6s ease forwards; animation-delay: 0.1s; opacity: 0; }
+    .s2-headline[data-s2-fade]   { animation: fadeUp  0.7s ease forwards; animation-delay: 0.2s; opacity: 0; }
+    .s2-sub[data-s2-fade]        { animation: fadeUp  0.7s ease forwards; animation-delay: 0.35s; opacity: 0; }
+    .s2-card[data-s2-c="0"]      { animation: fadeUp  0.6s ease forwards; animation-delay: 0.45s; opacity: 0; }
+    .s2-card[data-s2-c="1"]      { animation: fadeUp  0.6s ease forwards; animation-delay: 0.55s; opacity: 0; }
+    .s2-card[data-s2-c="2"]      { animation: fadeUp  0.6s ease forwards; animation-delay: 0.65s; opacity: 0; }
+    .s2-card[data-s2-c="3"]      { animation: fadeUp  0.6s ease forwards; animation-delay: 0.75s; opacity: 0; }
+    .s2-btn[data-s2-fade]        { animation: fadeUp  0.6s ease forwards; animation-delay: 0.9s;  opacity: 0; }
+    .s2-caption[data-s2-fade]    { animation: fadeUp  0.6s ease forwards; animation-delay: 1.0s;  opacity: 0; }
+
+    /* Responsividade S2 */
+    @media (max-width: 1024px) {
+      .s2-headline { font-size: 54px; }
+      .s2-sub { font-size: 22px; }
+    }
+
+    @media (max-width: 640px) {
+      #dor-insatisfacao { padding: 80px 20px; }
+      .s2-headline { font-size: 38px; }
+      .s2-sub { font-size: 18px; }
+      .s2-grid { grid-template-columns: 1fr; }
+      .s2-card { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════ -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Studio RC – Home">
+        <img src="Logo PNG.png" alt="Studio RC logo" />
+      </a>
+
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#tratamentos">Tratamentos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a href="https://wa.me/5517988083305" class="btn-header" target="_blank" rel="noopener">
+        Agendar Avaliação
+      </a>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ══════════════════════════════════════════════ -->
+  <section id="hero" id="inicio">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+
+      <!-- LEFT -->
+      <div class="hero-left">
+
+        <div class="badge" data-fade data-delay="0">
+          Fisioterapia • Estética • Bem-estar
+        </div>
+
+        <h1 data-fade data-delay="100">
+          Seu corpo merece<br>
+          se sentir bem por<br>
+          dentro e por fora.
+        </h1>
+
+        <p class="subheadline" data-fade data-delay="200">
+          Do alívio da dor à transformação estética, tratamentos personalizados para quem quer resultado real, com tecnologia e atendimento humanizado.
+        </p>
+
+        <div class="cta-area" data-fade data-delay="300">
+          <a href="https://wa.me/5517988083305" class="btn-primary" target="_blank" rel="noopener">
+            Agendar Avaliação
+          </a>
+          <a href="#tratamentos" class="btn-secondary">
+            Ver Tratamentos
+          </a>
+        </div>
+
+        <div class="contact-badges" data-fade data-delay="400">
+          <span class="contact-badge">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            São José do Rio Preto – SP
+          </span>
+          <a href="https://wa.me/5517988083305" class="contact-badge" target="_blank" rel="noopener" style="text-decoration:none;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.556 4.112 1.528 5.836L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.373l-.36-.213-3.727.977.994-3.634-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            (17) 98808-3305
+          </a>
+          <span class="contact-badge">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Protocolos exclusivos
+          </span>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Dr. Rômulo recortado -->
+      <div class="hero-right">
+        <img class="doctor-img" src="person-image.png" alt="Dr. Rômulo Carvalho – Fisioterapeuta" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ SEÇÃO 02 — DOR E INSATISFAÇÃO ═══════════════════ -->
+  <section id="dor-insatisfacao">
+    <div class="s2-container">
+
+      <!-- Badge -->
+      <div style="text-align:center;">
+        <span class="s2-badge" data-s2-fade>Você se identifica com algum desses cenários?</span>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="s2-headline" data-s2-fade>
+        Dor, desconforto ou insatisfação<br>com o corpo. Tudo tem solução.
+      </h2>
+
+      <!-- Subheadline -->
+      <p class="s2-sub" data-s2-fade>
+        O StudioRC atende quem quer sair da dor e quem quer ir além — cuidar da saúde e da autoestima no mesmo lugar.
+      </p>
+
+      <!-- Grid de cards -->
+      <div class="s2-grid">
+
+        <!-- Card 01 — Cama -->
+        <article class="s2-card" data-s2-c="0">
+          <img src="Icon-cama.png" alt="" width="48" height="48" class="s2-icon" aria-hidden="true" />
+          <h3 class="s2-card-title">Acorda com dor e deita com dor</h3>
+          <p class="s2-card-desc">Você tenta descansar, mas a dor não te deixa. Parece que qualquer posição virou um problema.</p>
+        </article>
+
+        <!-- Card 02 — Cadeira -->
+        <article class="s2-card" data-s2-c="1">
+          <img src="Icon -adeira.png" alt="" width="48" height="48" class="s2-icon" aria-hidden="true" />
+          <h3 class="s2-card-title">Passou o dia todo na cadeira e tá pagando o preço</h3>
+          <p class="s2-card-desc">Sua rotina no trabalho sobrecarrega seu corpo e, no fim do dia, a dor, o cansaço e a rigidez chegam junto.</p>
+        </article>
+
+        <!-- Card 03 — Cintura / Corpo -->
+        <article class="s2-card" data-s2-c="2">
+          <img src="Icon-corpo.png" alt="" width="48" height="48" class="s2-icon" aria-hidden="true" />
+          <h3 class="s2-card-title">Quer melhorar o corpo mas não sabe por onde começar</h3>
+          <p class="s2-card-desc">Você quer mais disposição, definição e autoestima, mas falta orientação e um plano feito para você.</p>
+        </article>
+
+        <!-- Card 04 — Tratamentos -->
+        <article class="s2-card" data-s2-c="3">
+          <img src="icon-tratamentos.png" alt="" width="48" height="48" class="s2-icon" aria-hidden="true" />
+          <h3 class="s2-card-title">Já tentou tratamentos e não viu resultado</h3>
+          <p class="s2-card-desc">Fisioterapia, remédio, massagem, repouso... Nada resolveu de verdade e a dor sempre volta.</p>
+        </article>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="s2-cta-wrap">
+        <a href="https://wa.me/5517988083305" class="s2-btn" data-s2-fade target="_blank" rel="noopener">
+          Quero agendar minha avaliação
+        </a>
+        <p class="s2-caption" data-s2-fade>A avaliação é o primeiro passo. Sem compromisso.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ SEÇÃO 03 — SOBRE O DR. RÔMULO ═══════════════════ -->
+  <section id="sobre">
+    <div class="s3-container">
+
+      <!-- Badge só no mobile, acima da imagem -->
+      <span class="s3-badge s3-badge-mobile">Quem é o Dr. Rômulo Carvalho</span>
+
+      <!-- Coluna esquerda — imagem -->
+      <div class="s3-img-wrap" data-s3>
+        <img class="s3-img" src="quem-quem-e-romulo.png" alt="Dr. Rômulo Carvalho realizando procedimento" />
+      </div>
+
+      <!-- Coluna direita — conteúdo -->
+      <div class="s3-content" data-s3>
+
+        <span class="s3-badge s3-badge-desktop">Quem é o Dr. Rômulo Carvalho</span>
+
+        <h2 class="s3-headline">
+          Fisioterapeuta especializado em saúde, reabilitação e estética corporal
+        </h2>
+
+        <p class="s3-desc">
+          À frente do StudioRC em São José do Rio Preto – SP. Com foco em unir tecnologia, protocolos exclusivos e atendimento humanizado para entregar resultados reais para seus pacientes.
+        </p>
+
+        <!-- Credenciais -->
+        <div class="s3-creds">
+
+          <div class="s3-cred" data-s3-c="0">
+            <img class="s3-cred-icon" src="icon-formação.png" alt="" aria-hidden="true" />
+            <div>
+              <p class="s3-cred-title">Formação Acadêmica</p>
+              <p class="s3-cred-desc">Graduação em Fisioterapia</p>
+            </div>
+          </div>
+
+          <div class="s3-cred" data-s3-c="1">
+            <img class="s3-cred-icon" src="icon-registro.png" alt="" aria-hidden="true" />
+            <div>
+              <p class="s3-cred-title">Registro Profissional</p>
+              <p class="s3-cred-desc">CREFITO – XXXXXX</p>
+            </div>
+          </div>
+
+          <div class="s3-cred" data-s3-c="2">
+            <img class="s3-cred-icon" src="icon-certificacoes.png" alt="" aria-hidden="true" />
+            <div>
+              <p class="s3-cred-title">Certificações</p>
+              <p class="s3-cred-desc">Pós-graduações e cursos de especialização em quiropraxia, estética avançada e pilates clínico.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="https://wa.me/5517988083305" class="s3-cta" target="_blank" rel="noopener">
+          Quero agendar minha avaliação
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
