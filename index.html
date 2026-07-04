@@ -409,6 +409,143 @@
     [data-delay="300"] { animation-delay: 0.65s; }
     [data-delay="400"] { animation-delay: 0.85s; }
 
+    /* ─── SEÇÃO 04 — TRATAMENTOS ─────────────────────────── */
+    #tratamentos {
+      background: var(--dark);
+      padding: 72px 40px;
+    }
+
+    .s4-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .s4-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .s4-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,.75);
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .s4-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .s4-card {
+      background: rgba(10,42,74,0.9);
+      border: 1.5px solid rgba(24,194,199,.5);
+      border-radius: 20px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .s4-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--teal);
+      box-shadow: 0 0 28px rgba(24,194,199,.15);
+    }
+
+    .s4-icon {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .s4-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .s4-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .s4-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.4;
+      position: relative;
+      padding-left: 14px;
+      text-align: left;
+    }
+
+    .s4-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+
+    .s4-cta-wrap {
+      text-align: center;
+      margin-top: 52px;
+    }
+
+    .s4-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--teal);
+      border: 1.5px solid var(--teal);
+      font-size: 16px;
+      font-weight: 600;
+      height: 52px;
+      padding: 0 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .s4-btn:hover { background: var(--teal); color: #fff; }
+
+    /* Animações S4 */
+    .s4-headline[data-s4] { opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
+    .s4-sub[data-s4]      { opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
+    .s4-card[data-s4-c="0"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+    .s4-card[data-s4-c="1"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+    .s4-card[data-s4-c="2"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s; }
+    .s4-card[data-s4-c="3"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
+    .s4-btn[data-s4]        { opacity: 0; animation: fadeUp 0.6s ease forwards 0.7s; }
+
+    /* Responsividade S4 */
+    @media (max-width: 1024px) {
+      .s4-grid { grid-template-columns: repeat(2, 1fr); }
+      .s4-headline { font-size: 48px; }
+    }
+
+    @media (max-width: 640px) {
+      #tratamentos { padding: 60px 20px; }
+      .s4-grid { grid-template-columns: 1fr; }
+      .s4-headline { font-size: 36px; }
+      .s4-sub { font-size: 16px; }
+      .s4-btn { width: 100%; }
+    }
+
     /* ─── SEÇÃO 03 — SOBRE O DR. RÔMULO ─────────────────── */
     #sobre {
       background: #fff;
@@ -889,6 +1026,68 @@
           Quero agendar minha avaliação
         </a>
         <p class="s2-caption" data-s2-fade>A avaliação é o primeiro passo. Sem compromisso.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ SEÇÃO 04 — TRATAMENTOS ══════════════════════════ -->
+  <section id="tratamentos">
+    <div class="s4-container">
+
+      <h2 class="s4-headline" data-s4>15 tratamentos. Um único lugar.</h2>
+      <p class="s4-sub" data-s4>Do alívio da dor ao cuidado estético, temos o protocolo certo para o seu caso.</p>
+
+      <div class="s4-grid">
+
+        <article class="s4-card" data-s4-c="0">
+          <img class="s4-icon" src="Icon-fisioterapia.png" alt="" aria-hidden="true" />
+          <h3 class="s4-card-title">Fisioterapia</h3>
+          <ul class="s4-list">
+            <li>Convencional</li>
+            <li>Esportiva</li>
+            <li>Recovery</li>
+            <li>Quiropraxia</li>
+            <li>Osteopatia</li>
+            <li>FisioTreiner</li>
+          </ul>
+        </article>
+
+        <article class="s4-card" data-s4-c="1">
+          <img class="s4-icon" src="Icon-movimentoeforca.png" alt="" aria-hidden="true" />
+          <h3 class="s4-card-title">Movimento e Força</h3>
+          <ul class="s4-list">
+            <li>Pilates</li>
+            <li>Pilates Clínico</li>
+            <li>Musculação Terapêutica</li>
+          </ul>
+        </article>
+
+        <article class="s4-card" data-s4-c="2">
+          <img class="s4-icon" src="Icon-tecnologia.png" alt="" aria-hidden="true" />
+          <h3 class="s4-card-title">Tecnologia e Recuperação</h3>
+          <ul class="s4-list">
+            <li>Ondas de Choque</li>
+            <li>Ultrassom de Baixa Intensidade</li>
+          </ul>
+        </article>
+
+        <article class="s4-card" data-s4-c="3">
+          <img class="s4-icon" src="Icon-estetica.png" alt="" aria-hidden="true" />
+          <h3 class="s4-card-title">Estética Corporal</h3>
+          <ul class="s4-list">
+            <li>Criolipólise</li>
+            <li>Radiofrequência</li>
+            <li>Drenagem Linfática</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="s4-cta-wrap">
+        <a href="https://wa.me/5517988083305" class="s4-btn" data-s4 target="_blank" rel="noopener">
+          Quero conhecer os tratamentos
+        </a>
       </div>
 
     </div>
