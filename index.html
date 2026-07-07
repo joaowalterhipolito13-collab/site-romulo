@@ -885,6 +885,637 @@
       .s2-grid { grid-template-columns: 1fr; }
       .s2-card { padding: 28px; }
     }
+
+    /* ─── SEÇÃO 05 — POR QUE O STUDIORC ──────────────────── */
+    #por-que-studiorc {
+      position: relative;
+      background: var(--dark);
+      padding: 96px 40px;
+      overflow: hidden;
+    }
+
+    .s5-decor {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 460px;
+      height: 460px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .s5-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .s5-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .s5-badge {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .s5-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+
+    .s5-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,.72);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .s5-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .s5-card {
+      background: rgba(10,42,74,.55);
+      border: 1px solid rgba(24,194,199,.28);
+      border-radius: 20px;
+      padding: 36px;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .s5-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--teal);
+      box-shadow: 0 0 28px rgba(24,194,199,.12);
+    }
+
+    .s5-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1.5px solid var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--teal);
+    }
+
+    .s5-icon-wrap svg { width: 28px; height: 28px; }
+
+    .s5-card-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .s5-card-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255,255,255,.72);
+    }
+
+    /* Animações S5 */
+    .s5-badge[data-s5]      { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+    .s5-headline[data-s5]   { opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
+    .s5-sub[data-s5]        { opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s; }
+    .s5-card[data-s5-c="0"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+    .s5-card[data-s5-c="1"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s; }
+    .s5-card[data-s5-c="2"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
+    .s5-card[data-s5-c="3"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.7s; }
+
+    /* Responsividade S5 */
+    @media (max-width: 1024px) {
+      .s5-headline { font-size: 42px; }
+      .s5-decor { width: 320px; height: 320px; opacity: 0.28; }
+    }
+
+    @media (max-width: 640px) {
+      #por-que-studiorc { padding: 72px 20px; }
+      .s5-header { margin-bottom: 40px; }
+      .s5-headline { font-size: 30px; }
+      .s5-sub { font-size: 16px; }
+      .s5-grid { grid-template-columns: 1fr; gap: 20px; }
+      .s5-card { padding: 28px; }
+      .s5-decor { width: 220px; height: 220px; top: -30px; right: -30px; opacity: 0.22; }
+    }
+
+    /* ─── SEÇÃO 06 — DEPOIMENTOS ──────────────────────────── */
+    #depoimentos {
+      position: relative;
+      background: #F7FAFC;
+      padding: 100px 40px;
+      overflow: hidden;
+    }
+
+    .s6-decor-arcs {
+      position: absolute;
+      top: -120px;
+      right: -160px;
+      width: 620px;
+      height: 620px;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .s6-decor-dots {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 280px;
+      height: 280px;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(circle, #C9D2DA 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+      -webkit-mask-image: radial-gradient(circle at bottom left, #000 0%, transparent 70%);
+      mask-image: radial-gradient(circle at bottom left, #000 0%, transparent 70%);
+    }
+
+    .s6-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .s6-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--teal);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 999px;
+      margin-bottom: 32px;
+    }
+
+    .s6-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #0D2B4E;
+      line-height: 1.15;
+      max-width: 820px;
+      margin: 0 auto 24px;
+    }
+
+    .s6-sub {
+      font-size: 19px;
+      color: #5B6472;
+      max-width: 640px;
+      margin: 0 auto 64px;
+      line-height: 1.6;
+    }
+
+    .s6-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: left;
+    }
+
+    .s6-card {
+      position: relative;
+      background: #fff;
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 10px 30px rgba(13,43,78,.07);
+    }
+
+    .s6-card::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: -10px;
+      bottom: -10px;
+      width: 6px;
+      background: var(--teal);
+      border-radius: 999px;
+    }
+
+    .s6-quote-icon {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    .s6-quote-text {
+      font-style: italic;
+      font-size: 16.5px;
+      color: #33404E;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .s6-person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .s6-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .s6-name {
+      font-weight: 700;
+      color: #0D2B4E;
+      font-size: 15px;
+    }
+
+    .s6-time {
+      font-size: 13px;
+      color: #8A94A3;
+      margin-top: 2px;
+    }
+
+    /* Animações S6 */
+    .s6-badge[data-s6]      { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+    .s6-headline[data-s6]   { opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
+    .s6-sub[data-s6]        { opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s; }
+    .s6-card[data-s6-c="0"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+    .s6-card[data-s6-c="1"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s; }
+    .s6-card[data-s6-c="2"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
+
+    /* Responsividade S6 */
+    @media (max-width: 1024px) {
+      .s6-headline { font-size: 42px; }
+      .s6-grid { grid-template-columns: 1fr; }
+      .s6-decor-arcs { width: 420px; height: 420px; }
+    }
+
+    @media (max-width: 640px) {
+      #depoimentos { padding: 72px 20px; }
+      .s6-headline { font-size: 30px; }
+      .s6-sub { font-size: 16px; margin-bottom: 40px; }
+      .s6-card { padding: 32px 24px; }
+      .s6-decor-arcs { width: 260px; height: 260px; top: -60px; right: -80px; }
+      .s6-decor-dots { width: 160px; height: 160px; }
+    }
+
+    /* ─── SEÇÃO 07 — CONTATO / CTA FINAL ─────────────────── */
+    #contato {
+      position: relative;
+      background: #fff;
+      padding: 110px 40px 100px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .s7-decor-lines {
+      position: absolute;
+      top: -60px;
+      left: -140px;
+      width: 620px;
+      height: 620px;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .s7-decor-spine {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 420px;
+      height: 100%;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .s7-container {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .s7-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--teal);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 999px;
+      margin-bottom: 32px;
+    }
+
+    .s7-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #0D2B4E;
+      line-height: 1.2;
+    }
+
+    .s7-headline-accent {
+      display: block;
+      font-style: italic;
+      color: var(--teal);
+      font-size: 56px;
+      margin-top: 6px;
+    }
+
+    .s7-sub {
+      font-size: 18px;
+      color: #5B6472;
+      line-height: 1.6;
+      margin: 28px auto 40px;
+      max-width: 560px;
+    }
+
+    .s7-cta-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .s7-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      text-align: left;
+      min-width: 320px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .s7-btn:hover { transform: translateY(-3px); }
+
+    .s7-btn-primary {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(24,194,199,.28);
+    }
+
+    .s7-btn-secondary {
+      background: #fff;
+      border: 1.5px solid var(--teal);
+      color: #0D2B4E;
+    }
+
+    .s7-btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .s7-btn-icon svg { width: 22px; height: 22px; }
+
+    .s7-btn-primary .s7-btn-icon { background: rgba(255,255,255,.2); color: #fff; }
+    .s7-btn-secondary .s7-btn-icon { background: rgba(24,194,199,.12); color: var(--teal); }
+
+    .s7-btn-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .s7-btn-desc {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 3px;
+    }
+
+    .s7-btn-primary .s7-btn-desc { color: rgba(255,255,255,.85); }
+    .s7-btn-secondary .s7-btn-desc { color: #5B6472; }
+
+    .s7-divider {
+      border: none;
+      border-top: 1px solid rgba(13,43,78,.08);
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .s7-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding: 44px 0 0;
+    }
+
+    .s7-info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .s7-info-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s7-info-icon svg { width: 22px; height: 22px; }
+
+    .s7-info-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0D2B4E;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .s7-info-desc {
+      font-size: 14px;
+      color: #8A94A3;
+    }
+
+    /* Animações S7 */
+    .s7-badge[data-s7]        { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+    .s7-headline[data-s7]     { opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
+    .s7-sub[data-s7]          { opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s; }
+    .s7-cta-row[data-s7]      { opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
+    .s7-info-item[data-s7-i="0"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s; }
+    .s7-info-item[data-s7-i="1"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
+    .s7-info-item[data-s7-i="2"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.7s; }
+
+    /* Responsividade S7 */
+    @media (max-width: 1024px) {
+      .s7-headline { font-size: 40px; }
+      .s7-headline-accent { font-size: 44px; }
+      .s7-decor-spine { width: 280px; opacity: 0.08; }
+    }
+
+    @media (max-width: 640px) {
+      #contato { padding: 72px 20px 64px; }
+      .s7-headline { font-size: 28px; }
+      .s7-headline-accent { font-size: 32px; }
+      .s7-sub { font-size: 16px; margin: 20px auto 32px; }
+      .s7-cta-row { flex-direction: column; margin-bottom: 40px; }
+      .s7-btn { min-width: 0; width: 100%; padding: 18px 22px; }
+      .s7-info-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 32px; }
+      .s7-decor-lines { width: 360px; height: 360px; top: -40px; left: -100px; }
+      .s7-decor-spine { display: none; }
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      padding: 72px 40px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-brand img {
+      height: 56px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: rgba(255,255,255,.62);
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+
+    .footer-social a svg { width: 18px; height: 18px; }
+
+    .footer-social a:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      letter-spacing: .02em;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      font-size: 14.5px;
+      color: rgba(255,255,255,.62);
+      text-decoration: none;
+      line-height: 1.9;
+    }
+
+    .footer-col a:hover { color: var(--teal); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 28px;
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+    }
+
+    .footer-bottom a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--teal); }
+
+    /* Responsividade Footer */
+    @media (max-width: 1024px) {
+      .footer-top { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+    }
+
+    @media (max-width: 640px) {
+      footer { padding: 56px 20px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
+      .footer-tagline { max-width: none; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; text-align: left; }
+    }
   </style>
 </head>
 <body>
@@ -1031,6 +1662,68 @@
     </div>
   </section>
 
+  <!-- ═══ SEÇÃO 03 — SOBRE O DR. RÔMULO ═══════════════════ -->
+  <section id="sobre">
+    <div class="s3-container">
+
+      <!-- Badge só no mobile, acima da imagem -->
+      <span class="s3-badge s3-badge-mobile">Quem é o Dr. Rômulo Carvalho</span>
+
+      <!-- Coluna esquerda — imagem -->
+      <div class="s3-img-wrap" data-s3>
+        <img class="s3-img" src="quem-quem-e-romulo.png" alt="Dr. Rômulo Carvalho realizando procedimento" />
+      </div>
+
+      <!-- Coluna direita — conteúdo -->
+      <div class="s3-content" data-s3>
+
+        <span class="s3-badge s3-badge-desktop">Quem é o Dr. Rômulo Carvalho</span>
+
+        <h2 class="s3-headline">
+          Fisioterapeuta especializado em saúde, reabilitação e estética corporal
+        </h2>
+
+        <p class="s3-desc">
+          À frente do StudioRC em São José do Rio Preto – SP. Com foco em unir tecnologia, protocolos exclusivos e atendimento humanizado para entregar resultados reais para seus pacientes.
+        </p>
+
+        <!-- Credenciais -->
+        <div class="s3-creds">
+
+          <div class="s3-cred" data-s3-c="0">
+            <img class="s3-cred-icon" src="icon-formação.png" alt="" aria-hidden="true" />
+            <div>
+              <p class="s3-cred-title">Formação Acadêmica</p>
+              <p class="s3-cred-desc">Graduação em Fisioterapia</p>
+            </div>
+          </div>
+
+          <div class="s3-cred" data-s3-c="1">
+            <img class="s3-cred-icon" src="icon-registro.png" alt="" aria-hidden="true" />
+            <div>
+              <p class="s3-cred-title">Registro Profissional</p>
+              <p class="s3-cred-desc">CREFITO – XXXXXX</p>
+            </div>
+          </div>
+
+          <div class="s3-cred" data-s3-c="2">
+            <img class="s3-cred-icon" src="icon-certificacoes.png" alt="" aria-hidden="true" />
+            <div>
+              <p class="s3-cred-title">Certificações</p>
+              <p class="s3-cred-desc">Pós-graduações e cursos de especialização em quiropraxia, estética avançada e pilates clínico.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="https://wa.me/5517988083305" class="s3-cta" target="_blank" rel="noopener">
+          Quero agendar minha avaliação
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ SEÇÃO 04 — TRATAMENTOS ══════════════════════════ -->
   <section id="tratamentos">
     <div class="s4-container">
@@ -1093,67 +1786,348 @@
     </div>
   </section>
 
-  <!-- ═══ SEÇÃO 03 — SOBRE O DR. RÔMULO ═══════════════════ -->
-  <section id="sobre">
-    <div class="s3-container">
+  <!-- ═══ SEÇÃO 05 — POR QUE O STUDIORC ═══════════════════ -->
+  <section id="por-que-studiorc">
 
-      <!-- Badge só no mobile, acima da imagem -->
-      <span class="s3-badge s3-badge-mobile">Quem é o Dr. Rômulo Carvalho</span>
+    <!-- Decoração — rede de nós -->
+    <svg class="s5-decor" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+      <g stroke="#18C2C7" stroke-width="1">
+        <line x1="330" y1="40" x2="270" y2="90" />
+        <line x1="270" y1="90" x2="300" y2="150" />
+        <line x1="270" y1="90" x2="200" y2="70" />
+        <line x1="200" y1="70" x2="150" y2="110" />
+        <line x1="300" y1="150" x2="360" y2="180" />
+        <line x1="300" y1="150" x2="240" y2="190" />
+        <line x1="240" y1="190" x2="150" y2="110" />
+        <line x1="240" y1="190" x2="260" y2="260" />
+        <line x1="150" y1="110" x2="90" y2="150" />
+        <line x1="360" y1="180" x2="330" y2="250" />
+        <line x1="260" y1="260" x2="330" y2="250" />
+        <line x1="260" y1="260" x2="200" y2="320" />
+        <line x1="90" y1="150" x2="120" y2="220" />
+        <line x1="120" y1="220" x2="200" y2="320" />
+      </g>
+      <g fill="#18C2C7">
+        <circle cx="330" cy="40" r="4" />
+        <circle cx="270" cy="90" r="5" />
+        <circle cx="200" cy="70" r="3.5" />
+        <circle cx="150" cy="110" r="5" />
+        <circle cx="300" cy="150" r="4" />
+        <circle cx="90" cy="150" r="3.5" />
+        <circle cx="360" cy="180" r="4" />
+        <circle cx="240" cy="190" r="5" />
+        <circle cx="120" cy="220" r="3.5" />
+        <circle cx="330" cy="250" r="4" />
+        <circle cx="260" cy="260" r="5" />
+        <circle cx="200" cy="320" r="4" />
+      </g>
+    </svg>
 
-      <!-- Coluna esquerda — imagem -->
-      <div class="s3-img-wrap" data-s3>
-        <img class="s3-img" src="quem-quem-e-romulo.png" alt="Dr. Rômulo Carvalho realizando procedimento" />
-      </div>
+    <div class="s5-container">
 
-      <!-- Coluna direita — conteúdo -->
-      <div class="s3-content" data-s3>
-
-        <span class="s3-badge s3-badge-desktop">Quem é o Dr. Rômulo Carvalho</span>
-
-        <h2 class="s3-headline">
-          Fisioterapeuta especializado em saúde, reabilitação e estética corporal
+      <div class="s5-header">
+        <span class="s5-badge" data-s5>Por que o StudioRC?</span>
+        <h2 class="s5-headline" data-s5>
+          Atenção que faz diferença desde a primeira consulta.
         </h2>
-
-        <p class="s3-desc">
-          À frente do StudioRC em São José do Rio Preto – SP. Com foco em unir tecnologia, protocolos exclusivos e atendimento humanizado para entregar resultados reais para seus pacientes.
+        <p class="s5-sub" data-s5>
+          Aqui você não é mais um paciente. É um caso que merece ser resolvido.
         </p>
+      </div>
 
-        <!-- Credenciais -->
-        <div class="s3-creds">
+      <div class="s5-grid">
 
-          <div class="s3-cred" data-s3-c="0">
-            <img class="s3-cred-icon" src="icon-formação.png" alt="" aria-hidden="true" />
-            <div>
-              <p class="s3-cred-title">Formação Acadêmica</p>
-              <p class="s3-cred-desc">Graduação em Fisioterapia</p>
-            </div>
+        <!-- Card 01 — Avaliação individualizada -->
+        <article class="s5-card" data-s5-c="0">
+          <div class="s5-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
           </div>
+          <h3 class="s5-card-title">Avaliação individualizada</h3>
+          <p class="s5-card-desc">Antes de qualquer tratamento, entendemos o seu caso do zero. Sem protocolo padrão, sem suposição.</p>
+        </article>
 
-          <div class="s3-cred" data-s3-c="1">
-            <img class="s3-cred-icon" src="icon-registro.png" alt="" aria-hidden="true" />
-            <div>
-              <p class="s3-cred-title">Registro Profissional</p>
-              <p class="s3-cred-desc">CREFITO – XXXXXX</p>
-            </div>
+        <!-- Card 02 — Tratamento assertivo -->
+        <article class="s5-card" data-s5-c="1">
+          <div class="s5-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="15" r="6" />
+              <circle cx="9" cy="15" r="2.4" />
+              <path d="M13.5 10.5L21 3M21 3h-5M21 3v5" />
+            </svg>
           </div>
+          <h3 class="s5-card-title">Tratamento assertivo</h3>
+          <p class="s5-card-desc">O diagnóstico bem feito encurta o caminho. Você trata o que precisa — sem perder tempo com o que não resolve.</p>
+        </article>
 
-          <div class="s3-cred" data-s3-c="2">
-            <img class="s3-cred-icon" src="icon-certificacoes.png" alt="" aria-hidden="true" />
-            <div>
-              <p class="s3-cred-title">Certificações</p>
-              <p class="s3-cred-desc">Pós-graduações e cursos de especialização em quiropraxia, estética avançada e pilates clínico.</p>
-            </div>
+        <!-- Card 03 — Menor tempo de recuperação -->
+        <article class="s5-card" data-s5-c="2">
+          <div class="s5-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <polyline points="12 7 12 12 15.5 14" />
+            </svg>
           </div>
+          <h3 class="s5-card-title">Menor tempo de recuperação</h3>
+          <p class="s5-card-desc">Nosso objetivo é te devolver a vida normal o mais rápido possível, com resultado duradouro.</p>
+        </article>
 
-        </div>
-
-        <a href="https://wa.me/5517988083305" class="s3-cta" target="_blank" rel="noopener">
-          Quero agendar minha avaliação
-        </a>
+        <!-- Card 04 — Tudo em um único lugar -->
+        <article class="s5-card" data-s5-c="3">
+          <div class="s5-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21s-7.5-4.6-10-9.3C.5 8.4 2.4 5 6 5c2 0 3.5 1 4.5 2.5C11.5 6 13 5 15 5c3.6 0 5.5 3.4 4 6.7C19.5 16.4 12 21 12 21z" />
+            </svg>
+          </div>
+          <h3 class="s5-card-title">Tudo em um único lugar</h3>
+          <p class="s5-card-desc">Fisioterapia, reabilitação, pilates e estética — sem precisar ir de clínica em clínica.</p>
+        </article>
 
       </div>
+
     </div>
   </section>
+
+  <!-- ═══ SEÇÃO 06 — DEPOIMENTOS ═══════════════════════════ -->
+  <section id="depoimentos">
+
+    <!-- Decoração — arcos concêntricos -->
+    <svg class="s6-decor-arcs" viewBox="0 0 620 620" fill="none" aria-hidden="true">
+      <g stroke="#D8DEE5" stroke-width="1.2">
+        <circle cx="460" cy="160" r="80" />
+        <circle cx="460" cy="160" r="140" />
+        <circle cx="460" cy="160" r="200" />
+        <circle cx="460" cy="160" r="260" />
+      </g>
+    </svg>
+
+    <!-- Decoração — grade de pontos -->
+    <div class="s6-decor-dots" aria-hidden="true"></div>
+
+    <div class="s6-container">
+
+      <span class="s6-badge" data-s6>O que dizem os pacientes</span>
+
+      <h2 class="s6-headline" data-s6>
+        Resultados reais de<br>quem confiou no tratamento.
+      </h2>
+
+      <p class="s6-sub" data-s6>
+        Depoimentos de quem encontrou mais qualidade de vida, alívio da dor e autoestima com o tratamento certo.
+      </p>
+
+      <div class="s6-grid">
+
+        <!-- Depoimento 01 -->
+        <article class="s6-card" data-s6-c="0">
+          <span class="s6-quote-icon" aria-hidden="true">&ldquo;</span>
+          <p class="s6-quote-text">Depois de meses com dor nas costas sem melhora, em poucas semanas de tratamento eu já sentia diferença. A avaliação foi o que mudou tudo.</p>
+          <div class="s6-person">
+            <div class="s6-avatar">M.S.</div>
+            <div>
+              <p class="s6-name">M.S.</p>
+              <p class="s6-time">Paciente há 4 meses</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Depoimento 02 -->
+        <article class="s6-card" data-s6-c="1">
+          <span class="s6-quote-icon" aria-hidden="true">&ldquo;</span>
+          <p class="s6-quote-text">Vim pela fisioterapia e acabei fazendo a criolipólise também. Atendimento impecável, resultado real.</p>
+          <div class="s6-person">
+            <div class="s6-avatar">R.L.</div>
+            <div>
+              <p class="s6-name">R.L.</p>
+              <p class="s6-time">Paciente há 6 meses</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Depoimento 03 -->
+        <article class="s6-card" data-s6-c="2">
+          <span class="s6-quote-icon" aria-hidden="true">&ldquo;</span>
+          <p class="s6-quote-text">O Dr. Rômulo explicou tudo com calma, montou um plano específico pra mim. Me sinto outra pessoa.</p>
+          <div class="s6-person">
+            <div class="s6-avatar">C.M.</div>
+            <div>
+              <p class="s6-name">C.M.</p>
+              <p class="s6-time">Paciente há 2 meses</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ SEÇÃO 07 — CONTATO / CTA FINAL ═══════════════════ -->
+  <section id="contato">
+
+    <!-- Decoração — arcos à esquerda -->
+    <svg class="s7-decor-lines" viewBox="0 0 620 620" fill="none" aria-hidden="true">
+      <g stroke="#D8DEE5" stroke-width="1.2">
+        <circle cx="120" cy="200" r="90" />
+        <circle cx="120" cy="200" r="150" />
+        <circle cx="120" cy="200" r="210" />
+        <circle cx="120" cy="200" r="270" />
+      </g>
+    </svg>
+
+    <!-- Decoração — coluna vertebral estilizada -->
+    <svg class="s7-decor-spine" viewBox="0 0 420 700" fill="none" aria-hidden="true">
+      <g stroke="#18C2C7" stroke-width="1.4">
+        <path d="M300 20 C 260 120 340 200 300 300 C 260 400 340 480 300 580 C 280 620 300 660 300 680" />
+      </g>
+      <g fill="#18C2C7">
+        <circle cx="300" cy="20" r="4" />
+        <circle cx="308" cy="80" r="4" />
+        <circle cx="290" cy="140" r="4" />
+        <circle cx="330" cy="200" r="4" />
+        <circle cx="300" cy="260" r="4" />
+        <circle cx="280" cy="320" r="4" />
+        <circle cx="320" cy="380" r="4" />
+        <circle cx="300" cy="440" r="4" />
+        <circle cx="290" cy="500" r="4" />
+        <circle cx="320" cy="560" r="4" />
+        <circle cx="300" cy="620" r="4" />
+        <circle cx="300" cy="680" r="4" />
+      </g>
+    </svg>
+
+    <div class="s7-container">
+
+      <span class="s7-badge" data-s7>Primeiro passo</span>
+
+      <h2 class="s7-headline" data-s7>
+        Pronto para se sentir<br>bem de verdade?
+        <span class="s7-headline-accent">Agende sua avaliação hoje.</span>
+      </h2>
+
+      <p class="s7-sub" data-s7>
+        Atendimento em São José do Rio Preto – SP.<br>
+        Avaliação completa, protocolo exclusivo, resultado real.
+      </p>
+
+      <div class="s7-cta-row" data-s7>
+        <a href="https://wa.me/5517988083305" class="s7-btn s7-btn-primary" target="_blank" rel="noopener">
+          <span class="s7-btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.556 4.112 1.528 5.836L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.373l-.36-.213-3.727.977.994-3.634-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          </span>
+          <span>
+            <span class="s7-btn-title">Agendar pelo WhatsApp</span>
+            <span class="s7-btn-desc">Fale direto com nossa equipe</span>
+          </span>
+        </a>
+
+        <a href="#tratamentos" class="s7-btn s7-btn-secondary">
+          <span class="s7-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <line x1="16" y1="3" x2="16" y2="7" />
+              <line x1="8" y1="3" x2="8" y2="7" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </span>
+          <span>
+            <span class="s7-btn-title">Ver todos os tratamentos</span>
+            <span class="s7-btn-desc">Conheça nossas especialidades</span>
+          </span>
+        </a>
+      </div>
+
+      <hr class="s7-divider" />
+
+      <div class="s7-info-grid">
+
+        <div class="s7-info-item" data-s7-i="0">
+          <span class="s7-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          </span>
+          <p class="s7-info-title">São José do Rio Preto – SP</p>
+          <p class="s7-info-desc">Atendimento presencial</p>
+        </div>
+
+        <div class="s7-info-item" data-s7-i="1">
+          <span class="s7-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <p class="s7-info-title">(17) 98808-3305</p>
+          <p class="s7-info-desc">Fale com a gente</p>
+        </div>
+
+        <div class="s7-info-item" data-s7-i="2">
+          <span class="s7-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <p class="s7-info-title">Protocolos exclusivos</p>
+          <p class="s7-info-desc">Mais resultado, menos tempo</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <img src="Logo PNG.png" alt="Studio RC logo" />
+          <p class="footer-tagline">Fisioterapia, estética e bem-estar em um único lugar. Atendimento individualizado, com tecnologia e resultado real.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/5517988083305" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.556 4.112 1.528 5.836L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.373l-.36-.213-3.727.977.994-3.634-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" /></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 8.5h2V5h-2c-2.2 0-4 1.8-4 4v2H9v3h2v6.5h3V14h2.2l.8-3H14v-1.7c0-.4.3-.8.8-.8z" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <a href="#inicio">Início</a>
+          <a href="#tratamentos">Tratamentos</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#contato">Contato</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tratamentos</h4>
+          <a href="#tratamentos">Fisioterapia</a>
+          <a href="#tratamentos">Movimento e Força</a>
+          <a href="#tratamentos">Tecnologia e Recuperação</a>
+          <a href="#tratamentos">Estética Corporal</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <p>São José do Rio Preto – SP</p>
+          <a href="tel:+5517988083305">(17) 98808-3305</a>
+          <a href="https://wa.me/5517988083305" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Studio RC – Dr. Rômulo Carvalho. Todos os direitos reservados.</p>
+        <p>CREFITO – XXXXXX</p>
+      </div>
+
+    </div>
+  </footer>
 
 </body>
 </html>
