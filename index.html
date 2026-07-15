@@ -586,19 +586,6 @@
       margin-bottom: 28px;
     }
 
-    /* Badge */
-    .s3-badge {
-      display: inline-block;
-      background: #0D2B4E;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 20px;
-      border-radius: 999px;
-      margin-bottom: 28px;
-    }
-    .s3-badge-desktop { display: block; width: fit-content; margin: 0 auto 28px; }
-
     /* Headline */
     .s3-headline {
       font-family: 'Playfair Display', serif;
@@ -687,10 +674,6 @@
     .s3-cred[data-s3-c="1"] { opacity: 0; animation: fadeUp   0.6s ease forwards 0.45s; }
     .s3-cred[data-s3-c="2"] { opacity: 0; animation: fadeUp   0.6s ease forwards 0.55s; }
 
-    /* Badge: desktop mostra o interno, mobile mostra o externo */
-    .s3-badge-mobile { display: none; }
-    .s3-badge-desktop { display: inline-block; }
-
     /* Responsividade S3 */
     @media (max-width: 1024px) {
       .s3-container { grid-template-columns: 1fr; gap: 32px; }
@@ -704,12 +687,6 @@
       .s3-desc { font-size: 16px; }
       .s3-cta { width: 100%; justify-content: center; }
 
-      /* Badge mobile acima da imagem */
-      .s3-badge-mobile {
-        display: inline-block;
-        margin-bottom: 16px;
-      }
-      .s3-badge-desktop { display: none; }
     }
 
     /* ─── SEÇÃO 02 — DOR E INSATISFAÇÃO ──────────────────── */
@@ -742,18 +719,6 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
-    }
-
-    /* Badge */
-    .s2-badge {
-      display: inline-block;
-      background: var(--teal);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px 24px;
-      border-radius: 999px;
-      margin-bottom: 40px;
     }
 
     /* Headline */
@@ -862,7 +827,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .s2-badge[data-s2-fade]      { animation: fadeDown 0.6s ease forwards; animation-delay: 0.1s; opacity: 0; }
     .s2-headline[data-s2-fade]   { animation: fadeUp  0.7s ease forwards; animation-delay: 0.2s; opacity: 0; }
     .s2-sub[data-s2-fade]        { animation: fadeUp  0.7s ease forwards; animation-delay: 0.35s; opacity: 0; }
     .s2-card[data-s2-c="0"]      { animation: fadeUp  0.6s ease forwards; animation-delay: 0.45s; opacity: 0; }
@@ -915,21 +879,6 @@
     .s5-header {
       text-align: center;
       margin-bottom: 64px;
-    }
-
-    .s5-badge {
-      display: inline-flex;
-      align-items: center;
-      background: transparent;
-      border: 1.5px solid var(--teal);
-      color: var(--teal);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 12px 28px;
-      border-radius: 999px;
-      margin-bottom: 28px;
     }
 
     .s5-headline {
@@ -999,7 +948,6 @@
     }
 
     /* Animações S5 */
-    .s5-badge[data-s5]      { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
     .s5-headline[data-s5]   { opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
     .s5-sub[data-s5]        { opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s; }
     .s5-card[data-s5-c="0"] { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
@@ -1233,20 +1181,6 @@
       margin: 0 auto;
     }
 
-    .s7-badge {
-      display: inline-flex;
-      align-items: center;
-      background: var(--teal);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 12px 28px;
-      border-radius: 999px;
-      margin-bottom: 32px;
-    }
-
     .s7-headline {
       font-family: 'Playfair Display', serif;
       font-size: 52px;
@@ -1386,7 +1320,6 @@
     }
 
     /* Animações S7 */
-    .s7-badge[data-s7]        { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
     .s7-headline[data-s7]     { opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
     .s7-sub[data-s7]          { opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s; }
     .s7-cta-row[data-s7]      { opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
@@ -1603,11 +1536,6 @@
   <section id="dor-insatisfacao">
     <div class="s2-container">
 
-      <!-- Badge -->
-      <div style="text-align:center;">
-        <span class="s2-badge" data-s2-fade>Você se identifica com algum desses cenários?</span>
-      </div>
-
       <!-- Headline -->
       <h2 class="s2-headline" data-s2-fade>
         Dor, desconforto ou insatisfação<br>com o corpo. Tudo tem solução.
@@ -1666,9 +1594,6 @@
   <section id="sobre">
     <div class="s3-container">
 
-      <!-- Badge só no mobile, acima da imagem -->
-      <span class="s3-badge s3-badge-mobile">Quem é o Dr. Rômulo Carvalho</span>
-
       <!-- Coluna esquerda — imagem -->
       <div class="s3-img-wrap" data-s3>
         <img class="s3-img" src="quem-quem-e-romulo.png" alt="Dr. Rômulo Carvalho realizando procedimento" />
@@ -1676,8 +1601,6 @@
 
       <!-- Coluna direita — conteúdo -->
       <div class="s3-content" data-s3>
-
-        <span class="s3-badge s3-badge-desktop">Quem é o Dr. Rômulo Carvalho</span>
 
         <h2 class="s3-headline">
           Fisioterapeuta especializado em saúde, reabilitação e estética corporal
@@ -1826,7 +1749,6 @@
     <div class="s5-container">
 
       <div class="s5-header">
-        <span class="s5-badge" data-s5>Por que o StudioRC?</span>
         <h2 class="s5-headline" data-s5>
           Atenção que faz diferença desde a primeira consulta.
         </h2>
@@ -1999,8 +1921,6 @@
     </svg>
 
     <div class="s7-container">
-
-      <span class="s7-badge" data-s7>Primeiro passo</span>
 
       <h2 class="s7-headline" data-s7>
         Pronto para se sentir<br>bem de verdade?
