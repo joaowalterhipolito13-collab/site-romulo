@@ -689,6 +689,56 @@
 
     }
 
+    /* ─── FAIXA DE TRATAMENTOS (MARQUEE) ─────────────────── */
+    .marquee-strip {
+      position: relative;
+      background: var(--teal);
+      overflow: hidden;
+      padding: 18px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      gap: 24px;
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    .marquee-strip:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+
+    .marquee-sep {
+      color: rgba(2,27,61,.45);
+      font-size: 14px;
+    }
+
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 640px) {
+      .marquee-strip { padding: 14px 0; }
+      .marquee-item { font-size: 13px; }
+      .marquee-track { gap: 18px; animation-duration: 20s; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+    }
+
     /* ─── SEÇÃO 02 — DOR E INSATISFAÇÃO ──────────────────── */
     #dor-insatisfacao {
       position: relative;
@@ -1531,6 +1581,40 @@
 
     </div>
   </section>
+
+  <!-- ═══ FAIXA DE TRATAMENTOS (MARQUEE) ═══════════════════ -->
+  <div class="marquee-strip">
+    <div class="marquee-track" aria-hidden="true">
+      <span class="marquee-item">Radiofrequência</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Pilates</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Radiofrequência</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Drenagem Linfática</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Fisioterapia</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Quiropraxia</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Osteopatia</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Radiofrequência</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Pilates</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Radiofrequência</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Drenagem Linfática</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Fisioterapia</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Quiropraxia</span>
+      <span class="marquee-sep">•</span>
+      <span class="marquee-item">Osteopatia</span>
+      <span class="marquee-sep">•</span>
+    </div>
+  </div>
 
   <!-- ═══ SEÇÃO 02 — DOR E INSATISFAÇÃO ═══════════════════ -->
   <section id="dor-insatisfacao">
