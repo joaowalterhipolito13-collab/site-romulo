@@ -11,6 +11,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- Sem JS, o conteúdo não pode depender do IntersectionObserver para ficar visível -->
+  <noscript>
+    <style>
+      section:not(.in-view) [data-s2-fade],
+      section:not(.in-view) [data-s3],
+      section:not(.in-view) [data-s3-c],
+      section:not(.in-view) [data-s4],
+      section:not(.in-view) [data-s4-c],
+      section:not(.in-view) [data-s5],
+      section:not(.in-view) [data-s5-c],
+      section:not(.in-view) [data-s6],
+      section:not(.in-view) [data-s6-c],
+      section:not(.in-view) [data-s7],
+      section:not(.in-view) [data-s7-i] {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,11 +41,27 @@
       --mid:  #032A59;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--dark);
       color: #fff;
       overflow-x: hidden;
+    }
+
+    section[id] {
+      scroll-margin-top: 100px;
+    }
+
+    /* Foco visível — acessibilidade e acabamento profissional */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 4px;
     }
 
     /* ─── HEADER ─────────────────────────────────────────── */
@@ -39,6 +76,13 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    header.is-scrolled {
+      background: rgba(2, 27, 61, 0.94);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      border-bottom-color: rgba(255,255,255,0.1);
     }
 
     .header-inner {
@@ -75,15 +119,35 @@
     }
 
     nav a {
+      position: relative;
       color: rgba(255,255,255,.85);
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
       transition: color .2s;
       white-space: nowrap;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
     }
 
     nav a:hover { color: var(--teal); }
+    nav a:hover::after { transform: scaleX(1); }
+
+    nav a.active { color: var(--teal); }
+    nav a.active::after { transform: scaleX(1); }
 
     .btn-header {
       background: var(--teal);
@@ -1499,6 +1563,69 @@
       .footer-tagline { max-width: none; }
       .footer-bottom { flex-direction: column; align-items: flex-start; text-align: left; }
     }
+
+    /* ─── REVEAL AO ROLAR A PÁGINA ────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      section:not(.in-view) [data-s2-fade],
+      section:not(.in-view) [data-s3],
+      section:not(.in-view) [data-s3-c],
+      section:not(.in-view) [data-s4],
+      section:not(.in-view) [data-s4-c],
+      section:not(.in-view) [data-s5],
+      section:not(.in-view) [data-s5-c],
+      section:not(.in-view) [data-s6],
+      section:not(.in-view) [data-s6-c],
+      section:not(.in-view) [data-s7],
+      section:not(.in-view) [data-s7-i] {
+        animation-play-state: paused;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-fade], [data-s2-fade], [data-s3], [data-s3-c], [data-s4], [data-s4-c],
+      [data-s5], [data-s5-c], [data-s6], [data-s6-c], [data-s7], [data-s7-i] {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ─── BOTÃO VOLTAR AO TOPO ────────────────────────────── */
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(24,194,199,.35);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity .3s ease, transform .3s ease, visibility .3s;
+      z-index: 90;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover { filter: brightness(1.08); }
+    .back-to-top svg { width: 20px; height: 20px; }
+
+    @media (max-width: 640px) {
+      .back-to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+    }
   </style>
 </head>
 <body>
@@ -1511,7 +1638,7 @@
       </a>
 
       <nav>
-        <a href="#inicio">Início</a>
+        <a href="#hero">Início</a>
         <a href="#tratamentos">Tratamentos</a>
         <a href="#sobre">Sobre</a>
         <a href="#depoimentos">Depoimentos</a>
@@ -1525,7 +1652,7 @@
   </header>
 
   <!-- ═══ HERO ══════════════════════════════════════════════ -->
-  <section id="hero" id="inicio">
+  <section id="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -2101,7 +2228,7 @@
 
         <div class="footer-col">
           <h4>Navegação</h4>
-          <a href="#inicio">Início</a>
+          <a href="#hero">Início</a>
           <a href="#tratamentos">Tratamentos</a>
           <a href="#sobre">Sobre</a>
           <a href="#depoimentos">Depoimentos</a>
@@ -2132,6 +2259,82 @@
 
     </div>
   </footer>
+
+  <!-- ═══ BOTÃO VOLTAR AO TOPO ══════════════════════════════ -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
+    </svg>
+  </button>
+
+  <script>
+    (function () {
+      var header = document.querySelector('header');
+      var backToTop = document.getElementById('backToTop');
+
+      // Reveal-on-scroll das seções abaixo da dobra
+      var revealSections = document.querySelectorAll(
+        '#dor-insatisfacao, #sobre, #tratamentos, #por-que-studiorc, #depoimentos, #contato'
+      );
+
+      function checkReveal() {
+        revealSections.forEach(function (section) {
+          if (!section.classList.contains('in-view') && section.getBoundingClientRect().top < window.innerHeight * 0.92) {
+            section.classList.add('in-view');
+          }
+        });
+      }
+
+      function onScroll() {
+        header.classList.toggle('is-scrolled', window.scrollY > 40);
+        backToTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.6);
+        checkReveal();
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(
+          function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+        );
+        revealSections.forEach(function (section) { revealObserver.observe(section); });
+      } else {
+        revealSections.forEach(function (section) { section.classList.add('in-view'); });
+      }
+
+      // Scrollspy — destaca o link de navegação da seção visível
+      var navLinks = document.querySelectorAll('nav a[href^="#"]');
+      var spyLinks = Array.prototype.filter.call(navLinks, function (link) {
+        return document.querySelector(link.getAttribute('href'));
+      });
+
+      function checkSpy() {
+        var current = null;
+        spyLinks.forEach(function (link) {
+          var section = document.querySelector(link.getAttribute('href'));
+          if (section.getBoundingClientRect().top <= 120) current = link;
+        });
+        navLinks.forEach(function (l) { l.classList.remove('active'); });
+        if (current) current.classList.add('active');
+      }
+
+      window.addEventListener('scroll', checkSpy, { passive: true });
+      checkSpy();
+    })();
+  </script>
 
 </body>
 </html>
